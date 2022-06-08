@@ -2,10 +2,10 @@ version: '3'
 
 services:
   yapi-web:
-    image: jayfong/yapi:latest
+    image: jayfong/yapi:1.10.2
     container_name: yapi-web
     ports:
-      - 40001:3000
+      - 3333:3000
     environment:
       - YAPI_ADMIN_ACCOUNT=admin@docker.yapi
       - YAPI_ADMIN_PASSWORD=adm1n
@@ -22,7 +22,7 @@ services:
       - yapi-mongo
     restart: unless-stopped
   yapi-mongo:
-    image: mongo:latest
+    image: mongo:5.0.4
     container_name: yapi-mongo
     volumes:
       - ./data/db:/data/db
